@@ -2,11 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @font-face {
+  font-family: Graphik;
+  src: url("./Fonts/GraphikBlack.otf"),
+  url("./Fonts/GraphikExtralight.otf"),
+  url("./Fonts/GraphikLight.otf"),
+  url("./Fonts/GraphikMedium.otf"),
+  url("./Fonts/GraphikRegular.otf"),
+  url("./Fonts/GraphikSemibold.otf"),
+  url("./Fonts/GraphikBold.otf");
+} */
+@layer base {
+  @font-face {
+    font-family: Graphik;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./Fonts/GraphikRegular.otf");
+  }
+  @font-face {
+    font-family: Graphik;
+    font-style: light;
+    font-weight: 300;
+    font-display: swap;
+    src: url("./Fonts/GraphikLight.otf");
+  }
+  @font-face {
+    font-family: Graphik;
+    font-style: Extra Light;
+    font-weight: 100;
+    font-display: swap;
+    src: url("./Fonts/GraphikExtralight.otf");
+  }
+  @font-face {
+    font-family: Graphik;
+    font-style: Medium;
+    font-weight: 500;
+    font-display: swap;
+    src: url("./Fonts/GraphikMedium.otf");
+  }
+  @font-face {
+    font-family: Graphik;
+    font-style: Semi Bold;
+    font-weight: 600;
+    font-display: swap;
+    src: url("./Fonts/GraphikSemibold.otf");
+  }
+  @font-face {
+    font-family: Graphik;
+    font-style: Boldt;
+    font-weight: 700;
+    font-display: swap;
+    src: url("./Fonts/GraphikBold.otf");
+  }
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Graphik, system-ui, Avenir, Helvetica, Arial, sans-serif;
+ 
 }
 
