@@ -3,30 +3,30 @@ import { NavLink } from "react-router-dom";
 export default function Header(){
     return (
         <div className="w-full h-[71px] flex items-center justify-between border-b border-gray-100">
-            <div className="flex items-center">
-            <div className="flex justify-center items-center ml-6 gap-1">
+            <div className="flex items-center" to="/">
+            <NavLink className="flex justify-center items-center ml-6 gap-1">
                 <span className="w-[28px] h-[28px] bg-[#222222] rounded-full"></span>
                 <span className="w-[18px] h-[18px] bg-[#9B62E0] rounded-full"></span>
-            </div>
+            </NavLink>
             <div className="flex gap-9 ml-12 font-light">
                 <NavLink 
                     to="/"
-                    className="text-sm font-normal text-[#222222]"
+                    className="text-sm font-normal text-[#222222] hover:font-medium"
                 >Home
                 </NavLink>
                 <NavLink
                     to="/features"
-                    className="text-sm font-normal text-[#222222]"
+                    className="text-sm font-normal text-[#222222] hover:font-medium"
                  >Features
                  </NavLink>
                 <NavLink
                     to="/"
-                    className="text-sm font-normal text-[#222222]"
+                    className="text-sm font-normal text-[#222222] hover:font-medium"
                  >Explore creators
                  </NavLink>
                 <NavLink
                     to="/"
-                    className="text-sm font-normal text-[#222222]"
+                    className="text-sm font-normal text-[#222222] hover:font-medium"
                 >FAQ
                 </NavLink>
             </div>
@@ -44,7 +44,7 @@ export default function Header(){
                 </div>
                 </div>
                 <button className="font-medium text-[#222222]">Sign in</button>
-                <button className="w-[90px] px-2 py-3 bg-[#9B62E0] font-medium text-white rounded-full">Sign Up</button>
+                <button className="w-[90px] px-2 py-3 bg-[#9B62E0] font-medium text-white text-[16px] rounded-full hover:bg-[#8F50DB] hover:text-[17px]">Sign Up</button>
             </div>    
         </div>
     )
