@@ -18,6 +18,19 @@ export default function Carousel({ creators }){
                 })
             }
             </div>
+            <div className="flex slide-track gap-8">
+            {
+                creators.map((creator)=>{
+                    return <CreatorTile 
+                                name={creator.name} 
+                                status={creator.status} 
+                                key={creator.id} 
+                                gender={creator.gender}
+                            />
+                    
+                })
+            }
+            </div>
         </div>
     
 }

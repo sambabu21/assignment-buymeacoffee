@@ -1,3 +1,4 @@
+import Footer from "../../Layout/Footer";
 import Banner from "./Banner";
 import CreatorSection from "./CreatorSection";
 
@@ -9,6 +10,7 @@ export default function Home(){
             <Banner />
             <FeaturePage />
             <CreatorSection />
+            <Footer />
         </div>
     )
 }

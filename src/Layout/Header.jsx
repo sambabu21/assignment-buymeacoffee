@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import SignIn from "./SIgnIn";
 
 export default function Header(){
+    const [login,setLogin] = useState(false)
+    
     return (
         <div className="w-full h-[71px] flex items-center justify-between border-b border-gray-100">
             <div className="flex items-center" to="/">
@@ -20,7 +24,7 @@ export default function Header(){
                  >Features
                  </NavLink>
                 <NavLink
-                    to="/"
+                    to="/users"
                     className="text-sm font-normal text-[#222222] hover:font-medium"
                  >Explore creators
                  </NavLink>
@@ -43,9 +47,10 @@ export default function Header(){
                     <input id="search" name="search" class="w-[290px] h-10 rounded-full border border-gray-300 py-1.5 pl-10 pr-3 text-gray-300 placeholder:text-gray-400 focus:bg-white focus:text-gray-900 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Search creators" type="search" />
                 </div>
                 </div>
-                <button className="font-medium text-[#222222]">Sign in</button>
+                <button className="font-medium text-[#222222]" onClick={()=>setLogin(true)}>Sign in</button>
                 <button className="w-[90px] px-2 py-3 bg-[#9B62E0] font-medium text-white text-[16px] rounded-full hover:bg-[#8F50DB] hover:text-[17px]">Sign Up</button>
-            </div>    
+            </div>  
+            { login ? <SignIn setLogin={setLogin}/>:null}  
         </div>
     )
 }
