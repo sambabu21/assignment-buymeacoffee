@@ -55,8 +55,9 @@ Run the following code to build the app:
 	yarn build
 
  Design decisions:
- 1.Implemented all designs according to the given design specs.
- 2.Used Tailwind CSS styling.
- 3.Used sonner(React library for toast messages) for toast messages.
- 4.Since mobile design specs where not provided, i designed it myself.
- 5.Used framer motion(react library) for creating animations.
+ 	
+  - Implemented all designs according to the given design specs.
+  - Used Tailwind CSS styling.
+  - Used sonner(React library for toast messages) for toast messages.
+  - Since mobile design specs where not provided, i designed it myself.
+  - Used framer motion(react library) for creating animations.
