@@ -1,4 +1,4 @@
-# React + Vite
+# React + Vite(Assignment for Buy Me A Coffee by Samjove Babu)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
