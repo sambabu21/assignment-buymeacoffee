@@ -2,7 +2,6 @@ import CreatorTile from "./CreatorTile"
 
 export default function Carousel({ creators }){
 
-    console.log(creators)
 
     return <div className="flex md:gap-8 gap-4 overflow-x-hidden ">
         <div className="flex slide-track md:gap-8 gap-4">

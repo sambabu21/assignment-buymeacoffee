@@ -32,6 +32,11 @@ export default function DeleteModal( {user,setDeleteOpen }){
                 pageParams:oldData.pageParams,
             }))
         },
+        onError:(error) => {
+            const errorData = error.response.data[0];
+            const errorMessage = `${errorData.field} ${errorData.message}`;
+            toast.error(error)
+        },
        
     })
 

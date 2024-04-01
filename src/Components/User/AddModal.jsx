@@ -28,8 +28,6 @@ export default function AddModal({ setOpen }){
     //function called on form submit
     function addCreator(e){
         e.preventDefault()
-        console.log(details)
-        console.log(errors)
         const isValid=validate(details)
         if(isValid){
             mutate(details)
@@ -179,7 +177,7 @@ export default function AddModal({ setOpen }){
                             {errors.status && <div className="text-[#FF0000] text-[8px] md:text-[12px] mt-1 -mb-3">{errors.status}</div>}
                         </div>
                     </div>
-                    <button className=" mt-10 w-[100px] h-[30px] md:w-[144px] md:h-[40px] rounded-[20px] bg-[#9B62E0] text-white md:text-[16px] text-[12px]" onClick={addCreator}>+ Add creator</button>
+                    <button className=" mt-10 w-[100px] h-[30px] md:w-[144px] md:h-[40px] rounded-[20px] bg-[#9B62E0] text-white md:text-[16px] text-[12px]" onClick={addCreator}>{isPending?"Adding..." :"+ Add creator"}</button>
                 </form>
             </div>
         </div>
