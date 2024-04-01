@@ -6,47 +6,46 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  
+Introduction:
+	Designed and developed website based on Design specs and instructions given. All functionalities have been implemented.
 
-1. Introduction
-Provide a brief overview of the project and its purpose.
+ Prerequisites:
+ 
+	  Node.js installed on your machine (with npm or yarn).
+	  Git installed on your machine.
+	  Basic understanding of React and Vite.
 
-2. Prerequisites
-  Node.js installed on your machine (with npm or yarn).
-  Git installed on your machine.
-  Basic understanding of React and Vite.
+Clone the Repository:
 
-4. Clone the Repository
-  Clone the repo using: git clone https://github.com/yourusername/your-repo.git
+	  Clone the repo using: git clone https://github.com/yourusername/your-repo.git
               
-4. Installation
+Installation:
 Install all dependencies. Use:
 
-cd your-repo
-npm install
-or
+	cd your-repo
+	npm install
+	or
+	
+	cd your-repo
+	yarn install
 
-cd your-repo
-yarn install
+Running the Application:
+Run the following code on your terminal:
 
-5. Running the Application
-Provide instructions on how to run the application locally.
+	bash
+	Copy code
+	npm run dev
+	or
+	
+	bash
+	Copy code
+	yarn dev
+Build the Application:
+Run the following code to build the app:
 
-bash
-Copy code
-npm run dev
-or
-
-bash
-Copy code
-yarn dev
-6. Build the Application
-Explain how to build the application for production.
-
-bash
-Copy code
-npm run build
-or
-
-bash
-Copy code
-yarn build
+	
+	npm run build
+	or
+	
+	yarn build
