@@ -8,7 +8,11 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
   
 Introduction:
-	Designed and developed website based on Design specs and instructions given. All functionalities have been implemented.
+	Designed and developed website based on Design specs and instructions given. All functionalities have been implemented. Since manage creators navigation link was not specified in the design, i added it to the navbar and made it a protected route. I implemented a dummy sign in for this to follow the design specs. 
+ Use the following usernam and password to login:
+	 
+   	  username:BMACADMIN
+	  password:admin@123
 
  Prerequisites:
  
@@ -49,3 +53,10 @@ Run the following code to build the app:
 	or
 	
 	yarn build
+
+ Design decisions:
+ 1.Implemented all designs according to the given design specs.
+ 2.Used Tailwind CSS styling.
+ 3.Used sonner(React library for toast messages) for toast messages.
+ 4.Since mobile design specs where not provided, i designed it myself.
+ 5.Used framer motion(react library) for creating animations.
