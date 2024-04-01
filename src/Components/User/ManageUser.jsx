@@ -1,15 +1,19 @@
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import AddModal from "./AddModal"
 import { useInfiniteQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import DeleteModal from "./DeleteModal"
 import Loader from "../Loader"
+import { toast } from "sonner"
+import EditModal from "./EditModal"
 
 export default function ManageUser(){
     const [open,setOpen] = useState(false)
     const [deleteOpen,setDeleteOpen] = useState(false)
     const ITEMS_PER_PAGE=7
+    const [editUserData,setEditUserData] = useState({})
+    const [editOpen,setEditOpen] = useState(false)
 
     const  fetchCreators =({ pageParam = 1 }) => {
         return fetch(`https://gorest.co.in/public/v2/users?page=${pageParam}&per_page=${ITEMS_PER_PAGE}`).then(res=>res.json())
@@ -22,34 +26,18 @@ export default function ManageUser(){
         getNextPageParam: (_, pages) => pages.length + 1,
     })
 
-    //function run on delete btn click
-    const deleteUser = (id) =>{
-        mutate(id)
+    //function run on edit btn click
+    const editUser = (user) =>{
+        setEditUserData(user)
+        setEditOpen(true)
     }
 
-
-    const queryClient = useQueryClient()
-
-    //api call to be made on delete user click
-    const {mutate} = useMutation({
-        mutationFn:(userId)=>{
-            return (fetch(`https://gorest.co.in/public/v2/users/${userId}`,{
-                method:"DELETE",
-                headers:{
-                    "Authorization": "Bearer e3d497998ca18d76b283777fb9a5643f73199652d94105e666bc35f5e2c59adb",
-                    "Content-Type":"application/json"
-                },
-            }),userId)
-        },
-        onSuccess:(response) => {
-            console.log(response)
-            queryClient.setQueryData(["creatorsdata"],(oldData)=>({
-                pages:[[...oldData.pages].filter(user=>user.id!==response)],
-                pageParams:pageParams,
-            }))
-        },
-       
-    })
+    //function run on edit btn click
+    const deleteUser=(user)=>{
+        setDeleteOpen(true)
+        setEditUserData(user)
+    }
+    
 
     return (
         <div className=" md:px-[132px] flex flex-col justify-center items-center">
@@ -79,8 +67,8 @@ export default function ManageUser(){
                                                 <th  className="md:py-5 font-normal text-[10px] md:text-[18px] md:text-left border md:border-0  md:pl-10">{creator.gender}</th>
                                                 <th  className={`md:py-5s font-medium text-[8px] md:text-[18px] md:text-left px-[1px] border md:border-0 md:pl-10 capitalize ${creator.status==="active"?"text-[#4C9A2A]":"text-[#FF0000]"}`}>{creator.status}</th>
                                                 <th className="flex gap-2 md:gap-10 md:justify-center items-center px-1 md:py-5 md:pr-10 py-2">
-                                                    <button className="bg-[#EBEBEB] font-medium text-[8px] md:text-[18px] md:w-[70px] md:h-[36px] rounded-[20px] flex items-center justify-center" >Edit</button>
-                                                    <FontAwesomeIcon icon={faTrashCan} className="cursor-pointer w-3 h-3 md:w-4 md:h-4" onClick={()=>setDeleteOpen(true)}/>
+                                                    <button className="bg-[#EBEBEB] font-medium text-[8px] md:text-[18px] md:w-[70px] md:h-[36px] rounded-[20px] flex items-center justify-center" onClick={()=>editUser(creator)}>Edit</button>
+                                                    <FontAwesomeIcon icon={faTrashCan} className="cursor-pointer w-3 h-3 md:w-4 md:h-4" onClick={()=>deleteUser(creator)}/>
                                                 </th>
                                             </tr>)
                                 })
@@ -91,7 +79,8 @@ export default function ManageUser(){
             </table>
             <button className="mx-auto w-[124px] flex mb-20 p-3 px-4 bg-[#22222215] rounded-[32px] text-[14px] font-medium justify-center" onClick={fetchNextPage}>Load More ⌵ </button>
             {open? <AddModal setOpen={setOpen}/>:null}
-            { deleteOpen ? <DeleteModal setDeleteOpen={setDeleteOpen} />:null }
+            { editOpen ? <EditModal user={editUserData} setEditOpen={setEditOpen}/>:null }
+            { deleteOpen ? <DeleteModal user={editUserData} setDeleteOpen={setDeleteOpen}/>:null }
             </>
             }
         </div>
