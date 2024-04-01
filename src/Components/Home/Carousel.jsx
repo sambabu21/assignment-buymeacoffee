@@ -4,8 +4,8 @@ export default function Carousel({ creators }){
 
     console.log(creators)
 
-    return <div className="flex gap-8  overflow-x-hidden">
-        <div className="flex slide-track gap-8">
+    return <div className="flex md:gap-8 gap-4 overflow-x-hidden ">
+        <div className="flex slide-track md:gap-8 gap-4">
             {
                 creators.map((creator)=>{
                     return <CreatorTile 
@@ -18,7 +18,7 @@ export default function Carousel({ creators }){
                 })
             }
             </div>
-            <div className="flex slide-track gap-8">
+            <div className="flex slide-track md:gap-8 gap-4">
             {
                 creators.map((creator)=>{
                     return <CreatorTile 
