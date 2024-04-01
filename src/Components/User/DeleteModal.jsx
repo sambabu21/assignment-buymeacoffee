@@ -2,6 +2,8 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
+import { motion } from "framer-motion"
+
 
 export default function DeleteModal( {user,setDeleteOpen }){
     
@@ -42,7 +44,11 @@ export default function DeleteModal( {user,setDeleteOpen }){
 
     return (
         <div className="w-screen h-screen bg-[#00000048] bg-opacity-70 z-40 flex justify-center items-center fixed inset-0">
-            <div className="md:h-[200px]  md:w-[500px] p-[20px] bg-white  flex flex-col justify-center items-center gap-4 md:gap-10">
+            <motion.div 
+                initial={{scale:0,opacity:0}}
+                animate={{scale:1,opacity:1}}
+                transition={{duration:0.2}}
+                className="md:h-[200px]  md:w-[500px] p-[20px] bg-white  flex flex-col justify-center items-center gap-4 md:gap-10">
                 <div className="flex  justify-between items-center gap-10">
                     <h1 className="font-medium md:text-[20px] text-[15px]">Are you sure you want to delete</h1>
                     <FontAwesomeIcon icon={faXmark} className="md:w-6 md:h-6 cursor-pointer" onClick={()=>{setDeleteOpen(false)}}/>
@@ -51,7 +57,7 @@ export default function DeleteModal( {user,setDeleteOpen }){
                     <button className="bg-[#9B62E0] hover:bg-[#774bac] w-[70px]  md:w-[100px] h-[40px] rounded-full text-white text-[14px] md:text-[16px]" onClick={()=>confirmDelete(user.id)}>Confirm</button>
                     <button className="border w-[70px]  md:w-[100px] h-[40px] rounded-full text-[14px] md:text-[16px]" onClick={()=>{setDeleteOpen(false)}}>Cancel</button>
                 </div>                
-            </div>
+            </motion.div>
         </div>
         ) 
 }

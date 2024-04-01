@@ -3,6 +3,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 import {  useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
+import { motion } from "framer-motion"
 
 export default function AddModal({ setOpen }){
     const [details,setdetails] = useState(
@@ -38,7 +39,6 @@ export default function AddModal({ setOpen }){
     const queryClient = useQueryClient()
     const {mutate,isPending} = useMutation({
         mutationFn:(newUserData)=>{
-            console.log("Printing from mutation fn,",newUserData)
             return fetch("https://gorest.co.in/public/v2/users",{
                 method:"POST",
                 headers:{
@@ -96,7 +96,11 @@ export default function AddModal({ setOpen }){
 
     return (
         <div className="w-screen h-screen bg-[#00000048] bg-opacity-70 z-40 flex justify-center items-center fixed inset-0">
-            <div className="md:h-[492px] md:w-[648px] h-[400px] w-screen bg-white px-[50px]">
+            <motion.div 
+                initial={{scale:0,opacity:0}}
+                animate={{scale:1,opacity:1}}
+                transition={{duration:0.2}}
+                className="md:h-[492px] md:w-[648px] h-[400px] w-screen bg-white px-[50px]">
                 <div className="flex  border-b pb-4 pt-[29px] justify-between items-center">
                     <h1 className="font-medium md:text-[24px] text-[16px]">Add a new creator</h1>
                     <FontAwesomeIcon icon={faXmark} className="md:w-6 md:h-6 cursor-pointer" onClick={()=>{setOpen(false)}}/>
@@ -179,7 +183,7 @@ export default function AddModal({ setOpen }){
                     </div>
                     <button className=" mt-10 w-[100px] h-[30px] md:w-[144px] md:h-[40px] rounded-[20px] bg-[#9B62E0] text-white md:text-[16px] text-[12px]" onClick={addCreator}>{isPending?"Adding..." :"+ Add creator"}</button>
                 </form>
-            </div>
+            </motion.div>
         </div>
         )
 }

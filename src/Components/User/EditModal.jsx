@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 import { toast } from "sonner"
+import { motion } from "framer-motion"
+
 
 export default function EditModal({ user,setEditOpen }){
     const [editData,setEditData] = useState(
@@ -99,7 +101,11 @@ export default function EditModal({ user,setEditOpen }){
 
     return (
         <div className="w-screen h-screen bg-[#00000048] bg-opacity-70 z-40 flex justify-center items-center fixed inset-y-0">
-            <div className="md:h-[492px] md:w-[648px] h-[350px] w-screen bg-white px-[50px] ">
+            <motion.div 
+                initial={{scale:0,opacity:0}}
+                animate={{scale:1,opacity:1}}
+                transition={{duration:0.2}}
+                className="md:h-[492px] md:w-[648px] h-[350px] w-screen bg-white px-[50px] ">
                 <div className="flex  border-b pb-4 pt-[29px] justify-between items-center">
                     <h1 className="font-medium md:text-[24px] text-[16px]">Edit user</h1>
                     <FontAwesomeIcon icon={faXmark} className="md:w-6 md:h-6 cursor-pointer" onClick={()=>{setEditOpen(false)}}/>
@@ -182,7 +188,7 @@ export default function EditModal({ user,setEditOpen }){
                     </div>
                     <button className=" mt-10 w-[100px] h-[30px] md:w-[144px] md:h-[40px] rounded-[20px] bg-[#9B62E0] text-white md:text-[16px] text-[12px]" onClick={editCreator}>{isPending?"Saving...":"Save changes"}</button>
                 </form>
-            </div>
+            </motion.div>
         </div>
     )
 }
