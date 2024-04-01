@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { useContext, useState } from "react"
 import { LoginContext } from "../App"
+import { toast } from "sonner"
 
 
 export default function SignIn({ setLogin }){
@@ -36,6 +37,7 @@ export default function SignIn({ setLogin }){
             setLoginFailed(false)
             setError(false)
             setLogin(false)
+            toast.success("Welcome Back!")
         }else{
             setLoginFailed(true)
             setError(true)
