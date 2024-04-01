@@ -9,7 +9,7 @@ Currently, two official plugins are available:
   
 Introduction:
 	Designed and developed website based on Design specs and instructions given. All functionalities have been implemented. Since manage creators navigation link was not specified in the design, i added it to the navbar and made it a protected route. I implemented a dummy sign in for this to follow the design specs. 
- Use the following usernam and password to login:
+ Use the following username and password to login:
 	 
    	  username:BMACADMIN
 	  password:admin@123
